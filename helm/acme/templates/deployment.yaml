@@ -15,6 +15,10 @@ spec:
         app: {{ template "acme.name" . }}
         release: {{ .Release.Name }}
     spec:
+      selector:
+        matchLabels:
+          app: {{ template "acme.name" . }}
+          release: {{ .Release.Name }}
     {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
       - name: {{ .Values.imagePullSecrets }}
