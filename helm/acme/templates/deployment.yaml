@@ -9,16 +9,16 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "acme.name" . }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: {{ template "acme.name" . }}
         release: {{ .Release.Name }}
-    spec:
-      selector:
-        matchLabels:
-          app: {{ template "acme.name" . }}
-          release: {{ .Release.Name }}
+    spec:      
     {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
       - name: {{ .Values.imagePullSecrets }}
