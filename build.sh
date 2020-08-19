@@ -107,6 +107,7 @@ pushHelmChart() {
     echo "Helm chart: ${chart_name}"
 
     [ ! -z "${chart_name}" ] || errorExit "Did not find the helm chart to deploy"
+    echo '    curl -u${HELM_USR}:${HELM_PSW} -T ${chart_name} "${HELM_REPO}/$(basename ${chart_name})" || errorExit "Uploading helm chart failed"'
     curl -u${HELM_USR}:${HELM_PSW} -T ${chart_name} "${HELM_REPO}/$(basename ${chart_name})" || errorExit "Uploading helm chart failed"
     echo
 }
