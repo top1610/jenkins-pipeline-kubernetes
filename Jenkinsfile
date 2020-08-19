@@ -153,7 +153,7 @@ pipeline {
                 sh "kubectl cluster-info"
 
                 // Init helm client
-                sh "helm init"
+                //sh "helm init"
 
                 // Make sure parameters file exists
                 script {
