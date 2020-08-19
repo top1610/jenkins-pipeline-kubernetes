@@ -11,7 +11,7 @@ DOCKER_PSW=${DOCKER_PSW:-password}
 DOCKER_REPO=${DOCKER_REPO:-acme}
 DOCKER_TAG=${DOCKER_TAG:-dev}
 
-HELM_REPO=${HELM_REG:-http://artifactory.my/artifactory/helm}
+HELM_REPO=${HELM_REG:-http://localhost:9090}
 HELM_USR=${HELM_USR:-admin}
 HELM_PSW=${HELM_PSW:-password}
 
