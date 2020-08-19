@@ -113,6 +113,8 @@ pipeline {
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
         PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
+        DOCKER_REG = "https://registry.cooky.vn"
+        HELM_REPO = ""
     }
 
     parameters {
@@ -156,14 +158,14 @@ pipeline {
                 //sh "helm init"
 
                 // Make sure parameters file exists
-                script {
-                    if (! fileExists("${PARAMETERS_FILE}")) {
-                        echo "ERROR: ${PARAMETERS_FILE} is missing!"
-                    }
-                }
+                //script {
+                //    if (! fileExists("${PARAMETERS_FILE}")) {
+                //        echo "ERROR: ${PARAMETERS_FILE} is missing!"
+                //    }
+                //}
 
                 // Load Docker registry and Helm repository configurations from file
-                load "${JENKINS_HOME}/parameters.groovy"
+                //load "${JENKINS_HOME}/parameters.groovy"
 
                 echo "DOCKER_REG is ${DOCKER_REG}"
                 echo "HELM_REPO  is ${HELM_REPO}"
