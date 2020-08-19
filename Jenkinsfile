@@ -168,7 +168,7 @@ pipeline {
                 //load "${JENKINS_HOME}/parameters.groovy"
 
                 echo "DOCKER_REG is ${DOCKER_REG}"
-                echo "HELM_REPO  is ${HELM_REPO}"
+                //echo "HELM_REPO  is ${HELM_REPO}"
 
                 // Define a unique name for the tests container and helm release
                 script {
