@@ -297,6 +297,8 @@ pipeline {
                     // Deploy with helm
                     echo "Deploying"
                     helmInstall (namespace, "${ID}")
+                    echo "wait for deploy..."
+                    sh 'sleep 5'
                 }
             }
         }
