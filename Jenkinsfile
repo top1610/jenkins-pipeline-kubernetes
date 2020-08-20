@@ -204,17 +204,23 @@ pipeline {
             parallel {
                 stage('Curl http_code') {
                     steps {
-                        curlRun ("http://${host_ip}", 'http_code')
+                        script {
+                            curlRun ("http://${host_ip}", 'http_code')
+                        }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
-                        curlRun ("http://${host_ip}", 'total_time')
+                        script {
+                            curlRun ("http://${host_ip}", 'total_time')
+                        }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
-                        curlRun ("http://${host_ip}", 'size_download')
+                        script {
+                            curlRun ("http://${host_ip}", 'size_download')
+                        }
                     }
                 }
             }
@@ -258,17 +264,23 @@ pipeline {
             parallel {
                 stage('Curl http_code') {
                     steps {
-                        curlTest (namespace, 'http_code')
+                        script {
+                            curlTest (namespace, 'http_code')
+                        }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
-                        curlTest (namespace, 'time_total')
+                        script {
+                            curlTest (namespace, 'time_total')
+                        }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
-                        curlTest (namespace, 'size_download')
+                        script {
+                            curlTest (namespace, 'size_download')
+                        }
                     }
                 }
             }
@@ -309,17 +321,23 @@ pipeline {
             parallel {
                 stage('Curl http_code') {
                     steps {
-                        curlTest (namespace, 'http_code')
+                        script {
+                            curlTest (namespace, 'http_code')
+                        }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
-                        curlTest (namespace, 'time_total')
+                        script {
+                            curlTest (namespace, 'time_total')
+                        }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
-                        curlTest (namespace, 'size_download')
+                        script {
+                            curlTest (namespace, 'size_download')
+                        }
                     }
                 }
             }
@@ -388,17 +406,23 @@ pipeline {
             parallel {
                 stage('Curl http_code') {
                     steps {
-                        curlTest (namespace, 'http_code')
+                        script {
+                            curlTest (namespace, 'http_code')
+                        }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
-                        curlTest (namespace, 'time_total')
+                        script {
+                            curlTest (namespace, 'time_total')
+                        }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
-                        curlTest (namespace, 'size_download')
+                        script {
+                            curlTest (namespace, 'size_download')
+                        }
                     }
                 }
             }
