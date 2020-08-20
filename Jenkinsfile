@@ -205,21 +205,21 @@ pipeline {
                 stage('Curl http_code') {
                     steps {
                         script {
-                            curlRun ("http://${host_ip}", 'http_code')
+                            jenkins_utls.curlRun ("http://${host_ip}", 'http_code')
                         }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
                         script {
-                            curlRun ("http://${host_ip}", 'total_time')
+                            jenkins_utls.curlRun ("http://${host_ip}", 'total_time')
                         }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
                         script {
-                            curlRun ("http://${host_ip}", 'size_download')
+                            jenkins_utls.curlRun ("http://${host_ip}", 'size_download')
                         }
                     }
                 }
@@ -247,14 +247,14 @@ pipeline {
                     namespace = 'development'
 
                     echo "Deploying application ${ID} to ${namespace} namespace"
-                    createNamespace (namespace)
+                    jenkins_utls.createNamespace (namespace)
 
                     // Remove release if exists
-                    helmDelete (namespace, "${ID}")
+                    jenkins_utls.helmDelete (namespace, "${ID}")
 
                     // Deploy with helm
                     echo "Deploying"
-                    helmInstall(namespace, "${ID}")
+                    jenkins_utls.helmInstall(namespace, "${ID}")
                 }
             }
         }
@@ -265,21 +265,21 @@ pipeline {
                 stage('Curl http_code') {
                     steps {
                         script {
-                            curlTest (namespace, 'http_code')
+                            jenkins_utls.curlTest (namespace, 'http_code')
                         }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
                         script {
-                            curlTest (namespace, 'time_total')
+                            jenkins_utls.curlTest (namespace, 'time_total')
                         }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
                         script {
-                            curlTest (namespace, 'size_download')
+                            jenkins_utls.curlTest (namespace, 'size_download')
                         }
                     }
                 }
@@ -290,7 +290,7 @@ pipeline {
             steps {
                 script {
                     // Remove release if exists
-                    helmDelete (namespace, "${ID}")
+                    jenkins_utls.helmDelete (namespace, "${ID}")
                 }
             }
         }
@@ -302,14 +302,14 @@ pipeline {
                     namespace = 'staging'
 
                     echo "Deploying application ${IMAGE_NAME}:${DOCKER_TAG} to ${namespace} namespace"
-                    createNamespace (namespace)
+                    jenkins_utls.createNamespace (namespace)
 
                     // Remove release if exists
-                    helmDelete (namespace, "${ID}")
+                    jenkins_utls.helmDelete (namespace, "${ID}")
 
                     // Deploy with helm
                     echo "Deploying"
-                    helmInstall (namespace, "${ID}")
+                    jenkins_utls.helmInstall (namespace, "${ID}")
                     echo "wait for deploy..."
                     sh 'sleep 5'
                 }
@@ -322,21 +322,21 @@ pipeline {
                 stage('Curl http_code') {
                     steps {
                         script {
-                            curlTest (namespace, 'http_code')
+                            jenkins_utls.curlTest (namespace, 'http_code')
                         }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
                         script {
-                            curlTest (namespace, 'time_total')
+                            jenkins_utls.curlTest (namespace, 'time_total')
                         }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
                         script {
-                            curlTest (namespace, 'size_download')
+                            jenkins_utls.curlTest (namespace, 'size_download')
                         }
                     }
                 }
@@ -347,7 +347,7 @@ pipeline {
             steps {
                 script {
                     // Remove release if exists
-                    helmDelete (namespace, "${ID}")
+                    jenkins_utls.helmDelete (namespace, "${ID}")
                 }
             }
         }
@@ -388,11 +388,11 @@ pipeline {
                     namespace = 'production'
 
                     echo "Deploying application ${IMAGE_NAME}:${DOCKER_TAG} to ${namespace} namespace"
-                    createNamespace (namespace)
+                    jenkins_utls.createNamespace (namespace)
 
                     // Deploy with helm
                     echo "Deploying"
-                    helmInstall (namespace, "${ID}")
+                    jenkins_utls.helmInstall (namespace, "${ID}")
                 }
             }
         }
@@ -407,21 +407,21 @@ pipeline {
                 stage('Curl http_code') {
                     steps {
                         script {
-                            curlTest (namespace, 'http_code')
+                            jenkins_utls.curlTest (namespace, 'http_code')
                         }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
                         script {
-                            curlTest (namespace, 'time_total')
+                            jenkins_utls.curlTest (namespace, 'time_total')
                         }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
                         script {
-                            curlTest (namespace, 'size_download')
+                            jenkins_utls.curlTest (namespace, 'size_download')
                         }
                     }
                 }
