@@ -12,7 +12,7 @@
 
 /*
     Create the kubernetes namespace
- */
+ 
 def createNamespace (namespace) {
     echo "Creating namespace ${namespace} if needed"
 
@@ -21,7 +21,7 @@ def createNamespace (namespace) {
 
 /*
     Helm install
- */
+ 
 def helmInstall (namespace, release) {
     echo "Installing ${release} in ${namespace}"
 
@@ -39,7 +39,7 @@ def helmInstall (namespace, release) {
 
 /*
     Helm delete (if exists)
- */
+ 
 def helmDelete (namespace, release) {
     echo "Deleting ${release} in ${namespace} if deployed"
 
@@ -51,7 +51,7 @@ def helmDelete (namespace, release) {
 
 /*
     Run a curl against a given url
- */
+ 
 def curlRun (url, out) {
     echo "Running curl on ${url}"
 
@@ -70,7 +70,7 @@ def curlRun (url, out) {
 
 /*
     Test with a simple curl and check we get 200 back
- */
+ 
 def curlTest (namespace, out) {
     echo "Running tests in ${namespace}"
 
@@ -97,9 +97,10 @@ def curlTest (namespace, out) {
     }
 }
 
-/*
+
     This is the main pipeline section with the stages of the CI/CD
  */
+@Library('jenkins_utls') _
 pipeline {
 
     options {
