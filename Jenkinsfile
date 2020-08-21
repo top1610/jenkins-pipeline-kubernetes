@@ -202,7 +202,7 @@ pipeline {
 
         // Run the 3 tests on the currently running ACME Docker container
         stage('Local tests') {
-            parallel {
+            stages {
                 stage('Curl http_code') {
                     steps {
                         script {
@@ -262,7 +262,7 @@ pipeline {
 
         // Run the 3 tests on the deployed Kubernetes pod and service
         stage('Dev tests') {
-            parallel {
+            stages {
                 stage('Curl http_code') {
                     steps {
                         script {
@@ -319,7 +319,7 @@ pipeline {
 
         // Run the 3 tests on the deployed Kubernetes pod and service
         stage('Staging tests') {
-            parallel {
+            stages {
                 stage('Curl http_code') {
                     steps {
                         script {
@@ -404,7 +404,7 @@ pipeline {
                 expression { DEPLOY_PROD == true }
             }
 
-            parallel {
+            stages {
                 stage('Curl http_code') {
                     steps {
                         script {
