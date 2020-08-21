@@ -255,7 +255,7 @@ pipeline {
 
                     // Deploy with helm
                     echo "Deploying"
-                    jenkins_utls.helmInstall(namespace, "${ID}", env.HELM_REPO, env.IMG_PULL_SECRET, env.DOCKER_REG, env.IMAGE_NAME, env.DOCKER_TAG)
+                    jenkins_utls.helmInstall(namespace, "${ID}", "${HELM_REPO}", "${IMG_PULL_SECRET}, "${DOCKER_REG}", "${IMAGE_NAME}", "${DOCKER_TAG}")
                 }
             }
         }
@@ -310,7 +310,7 @@ pipeline {
 
                     // Deploy with helm
                     echo "Deploying"
-                    jenkins_utls.helmInstall (namespace, "${ID}", env.HELM_REPO, env.IMG_PULL_SECRET, env.DOCKER_REG, env.IMAGE_NAME, env.DOCKER_TAG)
+                    jenkins_utls.helmInstall(namespace, "${ID}", "${HELM_REPO}", "${IMG_PULL_SECRET}, "${DOCKER_REG}", "${IMAGE_NAME}", "${DOCKER_TAG}")
                     echo "wait for deploy..."
                     sh 'sleep 5'
                 }
@@ -393,7 +393,7 @@ pipeline {
 
                     // Deploy with helm
                     echo "Deploying"
-                    jenkins_utls.helmInstall (namespace, "${ID}", env.HELM_REPO, env.IMG_PULL_SECRET, env.DOCKER_REG, env.IMAGE_NAME, env.DOCKER_TAG)
+                    jenkins_utls.helmInstall(namespace, "${ID}", "${HELM_REPO}", "${IMG_PULL_SECRET}, "${DOCKER_REG}", "${IMAGE_NAME}", "${DOCKER_TAG}")
                 }
             }
         }
