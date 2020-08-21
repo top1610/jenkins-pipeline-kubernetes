@@ -114,6 +114,7 @@ pipeline {
         TEST_LOCAL_PORT = 8817
         DEPLOY_PROD = false
         PARAMETERS_FILE = "${JENKINS_HOME}/parameters.groovy"
+        
     }
 
     parameters {
@@ -254,7 +255,7 @@ pipeline {
 
                     // Deploy with helm
                     echo "Deploying"
-                    jenkins_utls.helmInstall(namespace, "${ID}")
+                    jenkins_utls.helmInstall(namespace, "${ID}", env.HELM_REPO, env.IMG_PULL_SECRET, env.DOCKER_REG, env.IMAGE_NAME, env.DOCKER_TAG)
                 }
             }
         }
@@ -309,7 +310,7 @@ pipeline {
 
                     // Deploy with helm
                     echo "Deploying"
-                    jenkins_utls.helmInstall (namespace, "${ID}")
+                    jenkins_utls.helmInstall (namespace, "${ID}", env.HELM_REPO, env.IMG_PULL_SECRET, env.DOCKER_REG, env.IMAGE_NAME, env.DOCKER_TAG)
                     echo "wait for deploy..."
                     sh 'sleep 5'
                 }
@@ -392,7 +393,7 @@ pipeline {
 
                     // Deploy with helm
                     echo "Deploying"
-                    jenkins_utls.helmInstall (namespace, "${ID}")
+                    jenkins_utls.helmInstall (namespace, "${ID}", env.HELM_REPO, env.IMG_PULL_SECRET, env.DOCKER_REG, env.IMAGE_NAME, env.DOCKER_TAG)
                 }
             }
         }
