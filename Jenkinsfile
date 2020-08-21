@@ -266,21 +266,21 @@ pipeline {
                 stage('Curl http_code') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'http_code')
+                            jenkins_utls.curlTest (namespace, 'http_code', "${ID}")
                         }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'time_total')
+                            jenkins_utls.curlTest (namespace, 'time_total', "${ID}")
                         }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'size_download')
+                            jenkins_utls.curlTest (namespace, 'size_download', "${ID}")
                         }
                     }
                 }
@@ -323,21 +323,21 @@ pipeline {
                 stage('Curl http_code') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'http_code')
+                            jenkins_utls.curlTest (namespace, 'http_code', "${ID}")
                         }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'time_total')
+                            jenkins_utls.curlTest (namespace, 'time_total', "${ID}")
                         }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'size_download')
+                            jenkins_utls.curlTest (namespace, 'size_download', "${ID}")
                         }
                     }
                 }
@@ -408,21 +408,21 @@ pipeline {
                 stage('Curl http_code') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'http_code')
+                            jenkins_utls.curlTest (namespace, 'http_code', "${ID}")
                         }
                     }
                 }
                 stage('Curl total_time') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'time_total')
+                            jenkins_utls.curlTest (namespace, 'time_total', "${ID}")
                         }
                     }
                 }
                 stage('Curl size_download') {
                     steps {
                         script {
-                            jenkins_utls.curlTest (namespace, 'size_download')
+                            jenkins_utls.curlTest (namespace, 'size_download', "${ID}")
                         }
                     }
                 }
